@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayan Group | SSS Logistic • Ayan Cafe • Ayan Mobile</title>
+  <meta name="description" content="Official website for SSS Logistic tracking & cargo services, Ayan Cafe gourmet food & coffee, and Ayan Mobile sales, repairs & accessories.">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="switchView('hub')">
+        <div class="logo-badge">A</div>
+        <div class="logo-text">AYAN <span>GROUP</span></div>
+      </a>
+
+      <!-- Central View Switcher Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-target="hub" onclick="switchView('hub')">
+          <i class="fa-solid fa-layer-group"></i> Overview Hub
+        </button>
+        <button class="nav-tab" data-target="logistic" onclick="switchView('logistic')">
+          <i class="fa-solid fa-truck-fast"></i> SSS Logistic
+        </button>
+        <button class="nav-tab" data-target="cafe" onclick="switchView('cafe')">
+          <i class="fa-solid fa-mug-hot"></i> Ayan Cafe
+        </button>
+        <button class="nav-tab" data-target="mobile" onclick="switchView('mobile')">
+          <i class="fa-solid fa-mobile-screen-button"></i> Ayan Mobile
+        </button>
+      </nav>
+
+      <!-- Right Hand Utilities -->
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" title="Toggle Light/Dark Theme" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-btn" id="cart-btn" title="View Cafe Basket" onclick="openCartModal()">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== VIEW 1: UNIFIED HUB ==================== -->
+  <main id="view-hub" class="view-section active">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge badge-hub"><i class="fa-solid fa-star"></i> Multi-Service Excellence</span>
+          <h1>Welcome to <br><span class="gradient-hub">Ayan Business Ecosystem</span></h1>
+          <p class="hero-description">
+            Your single digital destination for worldwide freight & parcel logistics with <strong>SSS Logistic</strong>, artisan coffee & dining at <strong>Ayan Cafe</strong>, and latest mobile tech & repair care at <strong>Ayan Mobile</strong>.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="switchView('logistic')">
+              <i class="fa-solid fa-truck-fast"></i> Track Shipment
+            </button>
+            <button class="btn btn-cafe" onclick="switchView('cafe')">
+              <i class="fa-solid fa-utensils"></i> Order Food
+            </button>
+            <button class="btn btn-mobile" onclick="switchView('mobile')">
+              <i class="fa-solid fa-screwdriver-wrench"></i> Mobile Repair
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glass-panel" style="padding: 24px; position: relative;">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics & Tech Hub" style="width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-md);">
+            <div style="position: absolute; bottom: 40px; left: 40px; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); padding: 12px 20px; border-radius: 12px; border: 1px solid var(--border-glass);">
+              <p style="font-weight: 700; color: #fff; font-size: 0.9rem;"><i class="fa-solid fa-circle-check" style="color: var(--success)"></i> Verified Services Operating 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub Cards Grid -->
+    <section class="container" style="margin-bottom: 60px;">
+      <div class="section-header">
+        <span class="badge badge-hub">Our Vertical Operations</span>
+        <h2 class="section-title">Explore Our Business Services</h2>
+        <p class="section-subtitle">Dedicated verticals delivering high quality standards and customer satisfaction.</p>
+      </div>
+
+      <div class="hub-cards-grid">
+        <!-- Card 1: SSS Logistic -->
+        <div class="glass-panel hub-card logistic">
+          <div>
+            <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+              <img src="sss_logistic_hero.jpg" alt="SSS Logistic Fleet" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-truck-ramp-box"></i></div>
+            <h3>SSS Logistic</h3>
+            <p>Reliable freight forwarder, express package delivery, door-to-door courier, and heavy cargo transport network.</p>
+          </div>
+          <div class="hub-card-footer">
+            <button class="btn btn-logistic" style="width: 100%; justify-content: center;" onclick="switchView('logistic')">
+              Open SSS Logistic <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Ayan Cafe -->
+        <div class="glass-panel hub-card cafe">
+          <div>
+            <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+              <img src="ayan_cafe_hero.jpg" alt="Ayan Cafe Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-mug-saucer"></i></div>
+            <h3>Ayan Cafe</h3>
+            <p>Freshly brewed espresso blend, wood-fired pizzas, gourmet burgers, artisan shakes, and table dining experience.</p>
+          </div>
+          <div class="hub-card-footer">
+            <button class="btn btn-cafe" style="width: 100%; justify-content: center;" onclick="switchView('cafe')">
+              Open Ayan Cafe <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Ayan Mobile -->
+        <div class="glass-panel hub-card mobile">
+          <div>
+            <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+              <img src="ayan_mobile_hero.jpg" alt="Ayan Mobile Store Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-mobile-retro"></i></div>
+            <h3>Ayan Mobile</h3>
+            <p>Authorized reseller of flagship smartphones, original accessories, screen replacement, and express repair shop.</p>
+          </div>
+          <div class="hub-card-footer">
+            <button class="btn btn-mobile" style="width: 100%; justify-content: center;" onclick="switchView('mobile')">
+              Open Ayan Mobile <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="container">
+      <div class="glass-panel stats-strip">
+        <div class="stat-item">
+          <h3>50,000+</h3>
+          <p>Parcels Delivered (SSS Logistic)</p>
+        </div>
+        <div class="stat-item">
+          <h3 style="color: var(--accent-cafe)">120,000+</h3>
+          <p>Coffee & Meals Served (Ayan Cafe)</p>
+        </div>
+        <div class="stat-item">
+          <h3 style="color: var(--accent-mobile)">15,000+</h3>
+          <p>Mobiles Sold & Repaired (Ayan Mobile)</p>
+        </div>
+        <div class="stat-item">
+          <h3 style="color: var(--info)">4.9 / 5.0</h3>
+          <p>Overall Customer Satisfaction Rating</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ==================== VIEW 2: SSS LOGISTIC ==================== -->
+  <main id="view-logistic" class="view-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-logistic"><i class="fa-solid fa-truck-fast"></i> Cargo & Express Courier</span>
+        <h2 class="section-title">SSS Logistic Services</h2>
+        <p class="section-subtitle">Fast, secure, and trackable freight solutions across local & international routes.</p>
+      </div>
+
+      <!-- SSS Logistic Hero Banner Image Showcase -->
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 40px; border-color: rgba(59, 130, 246, 0.3);">
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 380px;">
+          <img src="sss_logistic_hero.jpg" alt="SSS Logistic Fleet & Freight Banner" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0)); padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <span class="badge badge-logistic" style="background: rgba(59, 130, 246, 0.3); border-color: var(--accent-logistic);"><i class="fa-solid fa-shield-halved"></i> 100% Insured Fleet</span>
+              <h3 style="font-size: 2rem; color: #fff; margin-top: 6px;">Global Freight & Express Network</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Seamless air, road, and maritime logistics powered by smart tracking technology.</p>
+            </div>
+            <button class="btn btn-logistic" onclick="openQuoteModal()">
+              <i class="fa-solid fa-paper-plane"></i> Book Immediate Cargo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SSS Logistic Service Gallery Cards -->
+      <div class="hub-cards-grid" style="margin-bottom: 50px;">
+        <div class="glass-panel hub-card" style="padding: 20px;">
+          <div style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500&q=80" alt="Express Air Freight" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h4><i class="fa-solid fa-plane-departure" style="color: var(--accent-logistic)"></i> Express Air Freight</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Next-day flight shipments for urgent documents and high-value cargo.</p>
+        </div>
+
+        <div class="glass-panel hub-card" style="padding: 20px;">
+          <div style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80" alt="Heavy Fleet Trucking" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h4><i class="fa-solid fa-truck-front" style="color: var(--accent-logistic)"></i> Fleet Heavy Trucking</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Inter-state container trucks with real-time GPS speed & route monitoring.</p>
+        </div>
+
+        <div class="glass-panel hub-card" style="padding: 20px;">
+          <div style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=500&q=80" alt="Smart Warehousing" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h4><i class="fa-solid fa-warehouse" style="color: var(--accent-logistic)"></i> Smart Warehousing</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Automated inventory storage, climate control, and distribution hubs.</p>
+        </div>
+      </div>
+
+      <!-- Live Consignment Tracking Simulator -->
+      <div class="glass-panel tracking-wrapper">
+        <h3 style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-location-crosshairs" style="color: var(--accent-logistic)"></i> Live Consignment Tracking
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+          Try sample tracking IDs: <strong>SSS-88921</strong>, <strong>SSS-10492</strong>, or <strong>SSS-55301</strong>
+        </p>
+
+        <div class="tracking-input-group">
+          <input type="text" id="tracking-id-input" class="input-field" placeholder="Enter Tracking Code (e.g. SSS-88921)" value="SSS-88921">
+          <button class="btn btn-logistic" onclick="trackShipment()">
+            <i class="fa-solid fa-magnifying-glass"></i> Track Now
+          </button>
+        </div>
+
+        <!-- Tracking Visual Timeline -->
+        <div id="tracking-result-box" style="margin-top: 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-glass);">
+            <div>
+              <h4 id="track-code-display" style="font-size: 1.1rem; color: var(--accent-logistic);">Tracking Code: SSS-88921</h4>
+              <p id="track-dest-display" style="font-size: 0.85rem; color: var(--text-muted);">Route: Mumbai Central Hub &rarr; Ahmedabad Express Warehouse</p>
+            </div>
+            <span id="track-status-pill" style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.8rem;">IN TRANSIT</span>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-progress" id="timeline-progress-bar" style="width: 66%;"></div>
+            
+            <div class="timeline-step completed" id="step-1">
+              <div class="step-icon"><i class="fa-solid fa-box-archive"></i></div>
+              <div class="step-title">Picked Up</div>
+              <div class="step-time">Sep 06, 09:30 AM</div>
+            </div>
+
+            <div class="timeline-step completed" id="step-2">
+              <div class="step-icon"><i class="fa-solid fa-warehouse"></i></div>
+              <div class="step-title">Sorting Hub</div>
+              <div class="step-time">Sep 07, 02:15 PM</div>
+            </div>
+
+            <div class="timeline-step active" id="step-3">
+              <div class="step-icon"><i class="fa-solid fa-truck"></i></div>
+              <div class="step-title">In Transit</div>
+              <div class="step-time">Sep 08, 08:00 AM</div>
+            </div>
+
+            <div class="timeline-step" id="step-4">
+              <div class="step-icon"><i class="fa-solid fa-house-chimney"></i></div>
+              <div class="step-title">Out for Delivery</div>
+              <div class="step-time">Expected Today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping Rate Calculator & Quote Generator -->
+      <div class="glass-panel" style="padding: 36px; margin-bottom: 60px;">
+        <h3><i class="fa-solid fa-calculator" style="color: var(--accent-logistic)"></i> Shipping Rate & Cost Calculator</h3>
+        
+        <div class="calculator-grid">
+          <div>
+            <div class="form-group">
+              <label>Origin Hub</label>
+              <select id="calc-origin" class="select-field" onchange="calculateFreightCost()">
+                <option value="mumbai">Mumbai Logistics Hub</option>
+                <option value="ahmedabad" selected>Ahmedabad Depot</option>
+                <option value="delhi">Delhi NCR Gateway</option>
+                <option value="surat">Surat Distribution Center</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Destination City</label>
+              <select id="calc-dest" class="select-field" onchange="calculateFreightCost()">
+                <option value="mumbai" selected>Mumbai</option>
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="delhi">Delhi</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="surat">Surat</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Consignment Weight (Kg)</label>
+              <input type="number" id="calc-weight" class="input-field" style="width: 100%; border-radius: var(--radius-md);" value="5" min="1" max="1000" oninput="calculateFreightCost()">
+            </div>
+
+            <div class="form-group">
+              <label>Service Speed</label>
+              <select id="calc-speed" class="select-field" onchange="calculateFreightCost()">
+                <option value="standard">Standard Fleet Cargo (3-4 Days)</option>
+                <option value="express" selected>SSS Air Express (24 Hours)</option>
+                <option value="same_day">VIP Same Day Delivery</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div>
+              <span class="badge badge-logistic">Estimated Rate</span>
+              <div class="price-display" id="calc-price-display">₹450</div>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Includes door step pickup, real-time GPS tracking, and insurance up to ₹10,000.</p>
+            </div>
+
+            <button class="btn btn-logistic" style="width: 100%; justify-content: center; margin-top: 20px;" onclick="openQuoteModal()">
+              <i class="fa-solid fa-paper-plane"></i> Book Freight Pickup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ==================== VIEW 3: AYAN CAFE ==================== -->
+  <main id="view-cafe" class="view-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cafe"><i class="fa-solid fa-mug-hot"></i> Coffee & Dining Experience</span>
+        <h2 class="section-title">Ayan Cafe Menu</h2>
+        <p class="section-subtitle">Handcrafted beverages, gourmet snacks, and delightful desserts prepared fresh daily.</p>
+      </div>
+
+      <!-- Ayan Cafe Hero Banner Image Showcase -->
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 40px; border-color: rgba(245, 158, 11, 0.3);">
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 380px;">
+          <img src="ayan_cafe_hero.jpg" alt="Ayan Cafe Bistro Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0)); padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <span class="badge badge-cafe" style="background: rgba(245, 158, 11, 0.3); border-color: var(--accent-cafe);"><i class="fa-solid fa-fire"></i> Freshly Brewed Daily</span>
+              <h3 style="font-size: 2rem; color: #fff; margin-top: 6px;">Artisan Espresso & Gourmet Bistro</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Experience handcrafted beverages, wood-fired artisan pizza & cozy ambience.</p>
+            </div>
+            <button class="btn btn-cafe" onclick="openReservationModal()">
+              <i class="fa-solid fa-calendar-check"></i> Reserve Table Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Controls & Action Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div class="cafe-categories" style="margin-bottom: 0;">
+          <button class="cat-btn active" onclick="filterCafeMenu('all', this)">All Items</button>
+          <button class="cat-btn" onclick="filterCafeMenu('coffee', this)">Espresso & Coffee</button>
+          <button class="cat-btn" onclick="filterCafeMenu('beverage', this)">Shakes & Coolers</button>
+          <button class="cat-btn" onclick="filterCafeMenu('snacks', this)">Burgers & Pizzas</button>
+          <button class="cat-btn" onclick="filterCafeMenu('dessert', this)">Desserts & Bakery</button>
+        </div>
+
+        <button class="btn btn-cafe" onclick="openReservationModal()">
+          <i class="fa-solid fa-calendar-check"></i> Book Table
+        </button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="cafe-menu-container">
+        <!-- Dynamic Cafe Items Injected via JS -->
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ==================== VIEW 4: AYAN MOBILE ==================== -->
+  <main id="view-mobile" class="view-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-mobile"><i class="fa-solid fa-mobile-screen-button"></i> Smart Tech & Repair</span>
+        <h2 class="section-title">Ayan Mobile Store & Clinic</h2>
+        <p class="section-subtitle">Buy latest smartphones, premium gadgets, and book certified instant repair service.</p>
+      </div>
+
+      <!-- Ayan Mobile Hero Banner Image Showcase -->
+      <div class="glass-panel" style="padding: 20px; margin-bottom: 40px; border-color: rgba(16, 185, 129, 0.3);">
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 380px;">
+          <img src="ayan_mobile_hero.jpg" alt="Ayan Mobile Store & Repair Clinic" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0)); padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <span class="badge badge-mobile" style="background: rgba(16, 185, 129, 0.3); border-color: var(--accent-mobile);"><i class="fa-solid fa-screwdriver-wrench"></i> Certified Repair Care</span>
+              <h3 style="font-size: 2rem; color: #fff; margin-top: 6px;">Flagship Devices & Express Repair Shop</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Genuine spare parts, 6 months warranty, express 30-minute display repair service.</p>
+            </div>
+            <button class="btn btn-mobile" onclick="showMobileSubTab('repair')">
+              <i class="fa-solid fa-clock"></i> Book Repair Slot
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Tabs: Devices & Repair Estimator -->
+      <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px;">
+        <button class="btn btn-mobile" onclick="showMobileSubTab('catalog')">
+          <i class="fa-solid fa-mobile-screen"></i> Latest Devices & Accessories
+        </button>
+        <button class="btn btn-outline" onclick="showMobileSubTab('repair')">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Instant Repair Estimator
+        </button>
+      </div>
+
+      <!-- Catalog Tab -->
+      <div id="mobile-tab-catalog">
+        <div class="mobile-grid" id="mobile-catalog-container">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Repair Estimator Tab -->
+      <div id="mobile-tab-repair" style="display: none;">
+        <div class="glass-panel repair-box">
+          <h3 style="margin-bottom: 8px;"><i class="fa-solid fa-screwdriver-wrench" style="color: var(--accent-mobile)"></i> Mobile Repair Cost Estimator</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">Get instant price quote for screen, battery, lens, or mother-board repairs with 6 months warranty.</p>
+
+          <div class="form-group">
+            <label>Select Brand</label>
+            <select id="repair-brand" class="select-field" onchange="updateRepairModels()">
+              <option value="apple">Apple iPhone</option>
+              <option value="samsung">Samsung Galaxy</option>
+              <option value="oneplus">OnePlus</option>
+              <option value="xiaomi">Xiaomi / Poco</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Model</label>
+            <select id="repair-model" class="select-field" onchange="calculateRepairCost()">
+              <!-- Dynamic options -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Issue / Repair Required</label>
+            <select id="repair-issue" class="select-field" onchange="calculateRepairCost()">
+              <option value="screen">Broken Display / Touch Screen Glass</option>
+              <option value="battery">Battery Replacement (Original)</option>
+              <option value="charging">Charging Port / Speaker Issue</option>
+              <option value="water">Liquid / Water Damage Service</option>
+            </select>
+          </div>
+
+          <div class="calc-result-box" style="border-color: var(--accent-mobile); margin-top: 24px;">
+            <div>
+              <span class="badge badge-mobile">Estimated Repair Cost</span>
+              <div class="price-display" id="repair-price-display" style="color: var(--accent-mobile)">₹2,499</div>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Includes free doorstep pick-up & 6 months warranty card.</p>
+            </div>
+
+            <button class="btn btn-mobile" style="margin-top: 16px; justify-content: center;" onclick="bookRepairSlot()">
+              <i class="fa-solid fa-clock"></i> Schedule Express Repair Slot
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ==================== MODALS ==================== -->
+  
+  <!-- Cafe Basket Modal -->
+  <div class="modal-backdrop" id="cart-modal">
+    <div class="glass-panel modal-content">
+      <button class="modal-close" onclick="closeCartModal()">&times;</button>
+      <h3><i class="fa-solid fa-basket-shopping" style="color: var(--accent-cafe)"></i> Your Cafe Basket</h3>
+      <div class="cart-items" id="cart-items-list">
+        <!-- Injected JS -->
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid var(--border-glass);">
+        <span style="font-weight: 700; font-size: 1.1rem;">Total Amount:</span>
+        <span id="cart-total-price" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-cafe)">₹0</span>
+      </div>
+      <button class="btn btn-cafe" style="width: 100%; margin-top: 20px; justify-content: center;" onclick="checkoutCafeCart()">
+        <i class="fa-solid fa-credit-card"></i> Proceed to Order & Receipt
+      </button>
+    </div>
+  </div>
+
+  <!-- Table Reservation Modal -->
+  <div class="modal-backdrop" id="reservation-modal">
+    <div class="glass-panel modal-content">
+      <button class="modal-close" onclick="closeReservationModal()">&times;</button>
+      <h3><i class="fa-solid fa-utensils" style="color: var(--accent-cafe)"></i> Book Table at Ayan Cafe</h3>
+      <div class="form-group" style="margin-top: 20px;">
+        <label>Your Full Name</label>
+        <input type="text" id="res-name" class="input-field" style="width: 100%; border-radius: var(--radius-md);" placeholder="Ayan Patel">
+      </div>
+      <div class="form-group">
+        <label>Guests / Party Size</label>
+        <select id="res-guests" class="select-field">
+          <option value="2">2 Persons (Couple Table)</option>
+          <option value="4" selected>4 Persons (Family Table)</option>
+          <option value="6">6+ Persons (Party Booth)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Date & Time Slot</label>
+        <input type="datetime-local" id="res-datetime" class="input-field" style="width: 100%; border-radius: var(--radius-md);">
+      </div>
+      <button class="btn btn-cafe" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="confirmReservation()">
+        <i class="fa-solid fa-check"></i> Confirm Reservation
+      </button>
+    </div>
+  </div>
+
+  <!-- Freight Quote Booking Modal -->
+  <div class="modal-backdrop" id="quote-modal">
+    <div class="glass-panel modal-content">
+      <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+      <h3><i class="fa-solid fa-box-open" style="color: var(--accent-logistic)"></i> SSS Logistic Pickup Booking</h3>
+      <div class="form-group" style="margin-top: 20px;">
+        <label>Sender Name</label>
+        <input type="text" id="ship-name" class="input-field" style="width: 100%; border-radius: var(--radius-md);" placeholder="Enter Sender Name">
+      </div>
+      <div class="form-group">
+        <label>Pickup Address</label>
+        <input type="text" id="ship-address" class="input-field" style="width: 100%; border-radius: var(--radius-md);" placeholder="Street, Building, City">
+      </div>
+      <div class="form-group">
+        <label>Contact Phone</label>
+        <input type="tel" id="ship-phone" class="input-field" style="width: 100%; border-radius: var(--radius-md);" placeholder="+91 98765 43210">
+      </div>
+      <button class="btn btn-logistic" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="confirmFreightBooking()">
+        <i class="fa-solid fa-paper-plane"></i> Confirm & Generate Tracking ID
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom: 16px;">
+            <div class="logo-badge">A</div>
+            <div class="logo-text">AYAN <span>GROUP</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px;">
+            Integrated excellence spanning SSS Logistic consignment delivery, Ayan Cafe gourmet dining, and Ayan Mobile tech solutions.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>SSS Logistic</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchView('logistic')">Express Courier</a></li>
+            <li><a href="#" onclick="switchView('logistic')">Consignment Tracking</a></li>
+            <li><a href="#" onclick="switchView('logistic')">Rate Calculator</a></li>
+            <li><a href="#" onclick="switchView('logistic')">B2B Freight</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ayan Cafe</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchView('cafe')">Artisan Coffee</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Online Menu</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Table Reservation</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Daily Specials</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ayan Mobile</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchView('mobile')">Flagship Mobiles</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Repair Estimator</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Accessories</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Device Trade-In</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ayan Group Ecosystem. All Rights Reserved. SSS Logistic • Ayan Cafe • Ayan Mobile</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
