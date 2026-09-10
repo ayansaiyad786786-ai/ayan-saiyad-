@@ -277,6 +277,25 @@
               <div class="step-time">Expected Today</div>
             </div>
           </div>
+
+          <!-- Live GPS Route Map Showcase -->
+          <div style="margin-top: 30px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.4); position: relative; background: #080c14;">
+            <div style="position: absolute; top: 16px; left: 16px; z-index: 10; background: rgba(8, 12, 20, 0.85); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-glass); display: flex; align-items: center; gap: 8px;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block; box-shadow: 0 0 10px #10b981;"></span>
+              <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">LIVE GPS TELEMETRY MAP</span>
+            </div>
+            <img src="sss_logistic_map.jpg" alt="SSS Logistic Live GPS Route Tracking Map" style="width: 100%; height: 360px; object-fit: cover; display: block;">
+            <div style="padding: 16px 24px; background: rgba(11, 15, 25, 0.9); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-glass);">
+              <div style="display: flex; gap: 24px;">
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); display: block;">SPEED</span><strong style="color: var(--accent-logistic);">88 km/h</strong></div>
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); display: block;">GPS LAT / LON</span><strong style="color: #fff;">23.0225° N, 72.5714° E</strong></div>
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); display: block;">DRIVER / FLEET</span><strong style="color: var(--success);">AT-4892 (Express Container)</strong></div>
+              </div>
+              <button class="btn btn-logistic" style="padding: 6px 14px; font-size: 0.8rem;" onclick="trackShipment()">
+                <i class="fa-solid fa-rotate"></i> Refresh Telemetry
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
