@@ -1,0 +1,17 @@
+{
+  "name": "ayan-ecosystem",
+  "version": "1.0.0",
+  "description": "Fullstack Web Application for SSS Logistic, Ayan Cafe, and Ayan Mobile",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["logistics", "cafe", "mobile", "express", "backend"],
+  "author": "Ayan Group",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
