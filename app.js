@@ -548,6 +548,29 @@ async function checkoutCafeCart() {
   showToast(`Order #${orderNum} confirmed! Total ₹${total.toLocaleString('en-IN')}. Fresh food preparing at Ayan Cafe!`, 'success');
 }
 
+// WhatsApp Direct Ordering
+function orderOnWhatsApp() {
+  let message = "☕ *Ayan Cafe Direct Order*\n\n";
+
+  if (state.cart.length === 0) {
+    message += "Hello Ayan Cafe! I would like to inquire about today's special menu & order coffee/snacks.";
+  } else {
+    message += "*Selected Menu Items:*\n";
+    let total = 0;
+    state.cart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      message += `• ${item.name} (${item.qty}x) - ₹${itemTotal}\n`;
+    });
+    message += `\n*Total Amount:* ₹${total.toLocaleString('en-IN')}\n\nPlease confirm my order & delivery details!`;
+  }
+
+  const encodedMsg = encodeURIComponent(message);
+  const waUrl = `https://wa.me/?text=${encodedMsg}`;
+  window.open(waUrl, '_blank');
+  showToast('Opening WhatsApp with your formatted Ayan Cafe order...', 'success');
+}
+
 // Table Reservation
 function openReservationModal() {
   document.getElementById('reservation-modal').classList.add('active');
