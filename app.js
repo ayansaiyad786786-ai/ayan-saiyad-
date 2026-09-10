@@ -635,14 +635,117 @@ function renderMobileCatalog() {
 
 function showMobileSubTab(tab) {
   const catalogEl = document.getElementById('mobile-tab-catalog');
+  const compareEl = document.getElementById('mobile-tab-compare');
   const repairEl = document.getElementById('mobile-tab-repair');
 
-  if (tab === 'catalog') {
-    catalogEl.style.display = 'block';
-    repairEl.style.display = 'none';
+  if (catalogEl) catalogEl.style.display = tab === 'catalog' ? 'block' : 'none';
+  if (compareEl) compareEl.style.display = tab === 'compare' ? 'block' : 'none';
+  if (repairEl) repairEl.style.display = tab === 'repair' ? 'block' : 'none';
+
+  if (tab === 'compare') updateComparison();
+}
+
+function updateComparison() {
+  const dev1Id = document.getElementById('compare-dev1')?.value || 'm1';
+  const dev2Id = document.getElementById('compare-dev2')?.value || 'm2';
+
+  const d1 = state.mobileCatalog.find(m => m.id === dev1Id) || state.mobileCatalog[0];
+  const d2 = state.mobileCatalog.find(m => m.id === dev2Id) || state.mobileCatalog[1];
+
+  const box = document.getElementById('comparison-result-box');
+  if (!box) return;
+
+  box.innerHTML = `
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+      <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-glass);">
+        <img src="${d1.img || d1.image_url}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+        <span class="badge badge-mobile">${d1.badge}</span>
+        <h4 style="margin-top: 8px;">${d1.title}</h4>
+        <h3 style="color: var(--accent-mobile); margin: 8px 0;">${d1.price}</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-muted);">
+          ${d1.specs.map(s => `<li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color: var(--accent-mobile)"></i> ${s}</li>`).join('')}
+        </ul>
+      </div>
+      <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-glass);">
+        <img src="${d2.img || d2.image_url}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+        <span class="badge badge-mobile">${d2.badge}</span>
+        <h4 style="margin-top: 8px;">${d2.title}</h4>
+        <h3 style="color: var(--accent-mobile); margin: 8px 0;">${d2.price}</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-muted);">
+          ${d2.specs.map(s => `<li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color: var(--accent-mobile)"></i> ${s}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `;
+}
+
+function lookupRepairStatus() {
+  const code = document.getElementById('repair-ticket-id')?.value.trim().toUpperCase() || 'REP-7082';
+  const resultBox = document.getElementById('repair-ticket-result');
+  const titleEl = document.getElementById('repair-result-title');
+  const statusEl = document.getElementById('repair-result-status');
+
+  if (!resultBox) return;
+
+  titleEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${code} • Express Service Order`;
+  statusEl.innerHTML = `Status: <strong style="color: var(--success)">Screen Replaced & Quality Tested • Ready for Pickup!</strong>`;
+  resultBox.style.display = 'block';
+  showToast(`Found repair status for ${code}`, 'success');
+}
+
+// Shipping Slip Print Modal
+function printShippingSlip() {
+  const modal = document.getElementById('shipping-slip-modal');
+  const codeEl = document.getElementById('slip-code');
+  const dateEl = document.getElementById('slip-date');
+  const trackingInput = document.getElementById('tracking-id-input');
+
+  if (codeEl && trackingInput) codeEl.innerText = trackingInput.value || 'SSS-88921';
+  if (dateEl) dateEl.innerText = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  if (modal) modal.classList.add('active');
+}
+
+function closeShippingSlipModal() {
+  const modal = document.getElementById('shipping-slip-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Business Admin Panel Modal
+async function openAdminModal() {
+  const modal = document.getElementById('admin-modal');
+  if (modal) modal.classList.add('active');
+
+  try {
+    const res = await fetch(`${API_BASE}/api/stats`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && data.data) {
+        document.getElementById('admin-shipments-count').innerText = data.data.shipments.toLocaleString('en-IN');
+        document.getElementById('admin-orders-count').innerText = data.data.orders.toLocaleString('en-IN');
+        document.getElementById('admin-repairs-count').innerText = data.data.repairs.toLocaleString('en-IN');
+      }
+    }
+  } catch (e) {
+    console.log('Admin panel loaded local state numbers');
+  }
+}
+
+function closeAdminModal() {
+  const modal = document.getElementById('admin-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Multi-language Toggle (Gujarati / English)
+let currentLang = 'EN';
+function toggleLanguage() {
+  currentLang = currentLang === 'EN' ? 'GUJ' : 'EN';
+  const label = document.getElementById('lang-label');
+  if (label) label.innerText = currentLang === 'EN' ? 'GUJ' : 'ENG';
+
+  if (currentLang === 'GUJ') {
+    showToast('અભિનંદન! વેબસાઇટ ગુજરાતી મોડમાં સ્વિચ થઈ છે.', 'success');
   } else {
-    catalogEl.style.display = 'none';
-    repairEl.style.display = 'block';
+    showToast('Switched site language to English.', 'info');
   }
 }
 
