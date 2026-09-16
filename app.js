@@ -1,6 +1,6 @@
 /**
  * Ayan Business Ecosystem Engine
- * Handles SSS Logistic, Ayan Cafe, and Ayan Mobile interactions with Fullstack REST API & SQLite DB sync
+ * Handles SS Logistic, Ayan South Indian Cafe, and Ayan Forest Hotel interactions with Fullstack REST API & SQLite DB sync
  */
 
 // API Base URL (auto-detects local server or static fallback)
@@ -121,6 +121,33 @@ const state = {
       desc: 'Warm chocolate cake with oozing molten ganache center.',
       tag: 'Sweet Delight',
       img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      id: 'p1',
+      name: 'Butter Chicken (Murgh Makhani)',
+      category: 'punjabi',
+      price: 380,
+      desc: 'Succulent tandoor chicken in rich, creamy tomato-butter gravy with aromatic spices. Served with naan.',
+      tag: 'Fan Favourite',
+      img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      id: 'p2',
+      name: 'Dal Makhani',
+      category: 'punjabi',
+      price: 260,
+      desc: 'Slow-cooked black lentils simmered overnight in butter, cream and smoky spices. Punjab\'s pride dish.',
+      tag: 'Chef Special',
+      img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      id: 'p3',
+      name: 'Sarson da Saag & Makki di Roti',
+      category: 'punjabi',
+      price: 220,
+      desc: 'Traditional mustard greens saag cooked with ginger-garlic, served with golden cornmeal flatbread & white butter.',
+      tag: 'Seasonal Special',
+      img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80'
     }
   ],
   mobileCatalog: [
@@ -826,4 +853,143 @@ function showToast(message, type = 'info') {
     toast.style.transform = 'translateX(100%)';
     setTimeout(() => toast.remove(), 300);
   }, 3500);
+}
+
+// ==================== AYAN FOREST HOTEL FUNCTIONS ====================
+
+function openHotelBookingModal() {
+  const bookingSection = document.getElementById('hotel-booking-section');
+  if (bookingSection) {
+    bookingSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    bookingSection.style.border = '2px solid var(--accent-mobile)';
+    bookingSection.style.boxShadow = '0 0 30px rgba(16,185,129,0.3)';
+    setTimeout(() => {
+      bookingSection.style.border = '';
+      bookingSection.style.boxShadow = '';
+    }, 2000);
+  }
+}
+
+async function confirmHotelBooking() {
+  const name = document.getElementById('hotel-name')?.value?.trim();
+  const phone = document.getElementById('hotel-phone')?.value?.trim();
+  const room = document.getElementById('hotel-room')?.value;
+  const checkin = document.getElementById('hotel-checkin')?.value;
+  const checkout = document.getElementById('hotel-checkout')?.value;
+
+  if (!name) { showToast('Please enter your full name.', 'danger'); return; }
+  if (!phone) { showToast('Please enter your contact number.', 'danger'); return; }
+  if (!checkin || !checkout) { showToast('Please select check-in and check-out dates.', 'danger'); return; }
+
+  const bookingId = 'AFH-' + Math.floor(1000 + Math.random() * 9000);
+
+  try {
+    await fetch(`${API_BASE}/api/hotel/bookings`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, room, checkin, checkout, bookingId })
+    });
+  } catch (e) {
+    console.log('Hotel booking saved locally.');
+  }
+
+  showToast(`🌿 Booking Confirmed! ID: ${bookingId} — Welcome to Ayan Forest Hotel, ${name}!`, 'success');
+
+  if (document.getElementById('hotel-name')) document.getElementById('hotel-name').value = '';
+  if (document.getElementById('hotel-phone')) document.getElementById('hotel-phone').value = '';
+  if (document.getElementById('hotel-checkin')) document.getElementById('hotel-checkin').value = '';
+  if (document.getElementById('hotel-checkout')) document.getElementById('hotel-checkout').value = '';
+}
+
+// ==================== NEW HUB FEATURES (SEARCH, DASHBOARD, CHATBOT) ====================
+
+// Universal Search
+function executeUniversalSearch() {
+  const input = document.getElementById('universal-search-input');
+  if (!input) return;
+  
+  const query = input.value.toLowerCase().trim();
+  if (!query) {
+    showToast('Please enter a search term', 'warning');
+    return;
+  }
+  
+  if (query.includes('dosa') || query.includes('food') || query.includes('coffee') || query.includes('cafe') || query.includes('thali')) {
+    switchView('cafe');
+    showToast('Found in Ayan South Indian Cafe', 'success');
+  } else if (query.includes('track') || query.includes('parcel') || query.includes('courier') || query.includes('logistic') || query.includes('shipment')) {
+    switchView('logistic');
+    showToast('Found in SS Logistic', 'success');
+  } else if (query.includes('room') || query.includes('hotel') || query.includes('villa') || query.includes('stay') || query.includes('book')) {
+    switchView('mobile');
+    showToast('Found in Ayan Forest Hotel', 'success');
+  } else {
+    showToast('No exact match. Try checking the specific services.', 'info');
+  }
+}
+
+// User Dashboard Modal
+function openUserDashboardModal() {
+  const modal = document.getElementById('user-dashboard-modal');
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeUserDashboardModal() {
+  const modal = document.getElementById('user-dashboard-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+// Chatbot Logic
+function toggleChatbot() {
+  const chatbot = document.getElementById('chatbot-window');
+  if (chatbot) {
+    if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+      chatbot.style.display = 'flex';
+    } else {
+      chatbot.style.display = 'none';
+    }
+  }
+}
+
+function sendChatbotMessage() {
+  const input = document.getElementById('chatbot-input-field');
+  const msgText = input.value.trim();
+  if (!msgText) return;
+
+  const messagesContainer = document.getElementById('chatbot-messages');
+  
+  // User message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user-msg';
+  userMsg.innerText = msgText;
+  messagesContainer.appendChild(userMsg);
+  
+  input.value = '';
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  // Bot response (Simulated delay)
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-msg bot-msg';
+    
+    const lower = msgText.toLowerCase();
+    if (lower.includes('track') || lower.includes('parcel')) {
+      botMsg.innerText = 'You can track your SS Logistic parcel by clicking the "SS Logistic" tab above and entering your tracking ID.';
+    } else if (lower.includes('food') || lower.includes('dosa') || lower.includes('order')) {
+      botMsg.innerText = 'Craving South Indian? Head over to the Ayan Cafe section to place an order for delicious dosa and filter coffee!';
+    } else if (lower.includes('hotel') || lower.includes('room')) {
+      botMsg.innerText = 'Planning a stay? Book a luxury nature villa in the Ayan Forest Hotel section.';
+    } else {
+      botMsg.innerText = 'I am the Ayan Assistant! I can help guide you to our Logistics, Cafe, or Hotel services. What are you looking for?';
+    }
+    
+    messagesContainer.appendChild(botMsg);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }, 1000);
+}
+
+function handleChatbotEnter(event) {
+  if (event.key === 'Enter') {
+    sendChatbotMessage();
+  }
 }

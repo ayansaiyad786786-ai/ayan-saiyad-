@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayan Group | SSS Logistic • Ayan Cafe • Ayan Mobile</title>
-  <meta name="description" content="Official website for SSS Logistic tracking & cargo services, Ayan Cafe gourmet food & coffee, and Ayan Mobile sales, repairs & accessories.">
+  <title>Ayan Group | SS Logistic • Ayan Forest Hotel • Ayan South Indian Cafe</title>
+  <meta name="description" content="Official website for SS Logistic tracking &amp; cargo services, Ayan Forest Hotel luxury nature retreat, and Ayan South Indian Cafe authentic South Indian cuisine.">
   <link rel="stylesheet" href="style.css">
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,18 +25,21 @@
           <i class="fa-solid fa-layer-group"></i> Overview Hub
         </button>
         <button class="nav-tab" data-target="logistic" onclick="switchView('logistic')">
-          <i class="fa-solid fa-truck-fast"></i> SSS Logistic
+          <i class="fa-solid fa-truck-fast"></i> SS Logistic
         </button>
         <button class="nav-tab" data-target="cafe" onclick="switchView('cafe')">
-          <i class="fa-solid fa-mug-hot"></i> Ayan Cafe
+          <i class="fa-solid fa-bowl-rice"></i> South Indian Cafe
         </button>
         <button class="nav-tab" data-target="mobile" onclick="switchView('mobile')">
-          <i class="fa-solid fa-mobile-screen-button"></i> Ayan Mobile
+          <i class="fa-solid fa-tree"></i> Forest Hotel
         </button>
       </nav>
 
       <!-- Right Hand Utilities -->
       <div class="nav-actions">
+        <button class="icon-btn" title="User Dashboard" onclick="openUserDashboardModal()">
+          <i class="fa-solid fa-user"></i>
+        </button>
         <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem;" id="lang-toggle-btn" onclick="toggleLanguage()">
           <i class="fa-solid fa-language"></i> <span id="lang-label">GUJ</span>
         </button>
@@ -65,17 +68,17 @@
           <span class="badge badge-hub"><i class="fa-solid fa-star"></i> Multi-Service Excellence</span>
           <h1>Welcome to <br><span class="gradient-hub">Ayan Business Ecosystem</span></h1>
           <p class="hero-description">
-            Your single digital destination for worldwide freight & parcel logistics with <strong>SSS Logistic</strong>, artisan coffee & dining at <strong>Ayan Cafe</strong>, and latest mobile tech & repair care at <strong>Ayan Mobile</strong>.
+            Your single digital destination for reliable freight &amp; cargo solutions with <strong>SS Logistic</strong>, authentic South Indian cuisine at <strong>Ayan South Indian Cafe</strong>, and luxury nature hospitality at <strong>Ayan Forest Hotel</strong>.
           </p>
           <div class="hero-actions">
             <button class="btn btn-primary" onclick="switchView('logistic')">
               <i class="fa-solid fa-truck-fast"></i> Track Shipment
             </button>
             <button class="btn btn-cafe" onclick="switchView('cafe')">
-              <i class="fa-solid fa-utensils"></i> Order Food
+              <i class="fa-solid fa-bowl-rice"></i> Order Food
             </button>
             <button class="btn btn-mobile" onclick="switchView('mobile')">
-              <i class="fa-solid fa-screwdriver-wrench"></i> Mobile Repair
+              <i class="fa-solid fa-tree"></i> Book Hotel Room
             </button>
           </div>
         </div>
@@ -91,6 +94,29 @@
       </div>
     </section>
 
+    <!-- Universal Search -->
+    <section class="container" style="margin-bottom: 40px; margin-top: -20px;">
+      <div class="glass-panel" style="padding: 16px; display: flex; gap: 12px; align-items: center;">
+        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); font-size: 1.2rem; margin-left: 8px;"></i>
+        <input type="text" id="universal-search-input" placeholder="Search for tracking, food, or rooms..." style="flex: 1; background: transparent; border: none; color: var(--text); font-size: 1.1rem; outline: none;">
+        <button class="btn btn-primary" onclick="executeUniversalSearch()">Search</button>
+      </div>
+    </section>
+
+    <!-- Special Offers & News -->
+    <section class="container" style="margin-bottom: 60px;">
+      <div class="glass-panel offers-carousel" style="padding: 20px; background: linear-gradient(45deg, rgba(59,130,246,0.1), rgba(16,185,129,0.1)); border-left: 4px solid var(--accent-hub);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <span class="badge badge-hub" style="margin-bottom: 8px;"><i class="fa-solid fa-fire"></i> Special Combo Offer</span>
+            <h3 style="margin: 0; font-size: 1.3rem;">Book a Hotel Stay & Get 15% OFF at Cafe</h3>
+            <p style="color: var(--text-muted); margin: 4px 0 0 0; font-size: 0.9rem;">Exclusive deal for our Ayan Group ecosystem users.</p>
+          </div>
+          <button class="btn btn-mobile" onclick="switchView('mobile')">Claim Now</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Hub Cards Grid -->
     <section class="container" style="margin-bottom: 60px;">
       <div class="section-header">
@@ -100,55 +126,97 @@
       </div>
 
       <div class="hub-cards-grid">
-        <!-- Card 1: SSS Logistic -->
+        <!-- Card 1: SS Logistic -->
         <div class="glass-panel hub-card logistic">
           <div>
             <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
-              <img src="sss_logistic_hero.jpg" alt="SSS Logistic Fleet" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="ss_logistic_hero_new.jpg" alt="SS Logistic Fleet" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-truck-ramp-box"></i></div>
-            <h3>SSS Logistic</h3>
+            <h3>SS Logistic</h3>
             <p>Reliable freight forwarder, express package delivery, door-to-door courier, and heavy cargo transport network.</p>
           </div>
           <div class="hub-card-footer">
             <button class="btn btn-logistic" style="width: 100%; justify-content: center;" onclick="switchView('logistic')">
-              Open SSS Logistic <i class="fa-solid fa-arrow-right"></i>
+              Open SS Logistic <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
 
-        <!-- Card 2: Ayan Cafe -->
+        <!-- Card 2: Ayan South Indian Cafe -->
         <div class="glass-panel hub-card cafe">
           <div>
             <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
-              <img src="ayan_cafe_hero.jpg" alt="Ayan Cafe Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="https://images.unsplash.com/photo-1630409351217-bc4fa6422075?auto=format&fit=crop&w=600&q=80" alt="South Indian Dosa - Ayan Cafe" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-mug-saucer"></i></div>
-            <h3>Ayan Cafe</h3>
-            <p>Freshly brewed espresso blend, wood-fired pizzas, gourmet burgers, artisan shakes, and table dining experience.</p>
+            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-bowl-rice"></i></div>
+            <h3>Ayan South Indian Cafe</h3>
+            <p>Authentic South Indian breakfast & meals — crispy dosa, soft idli, sambar, chutneys, filter coffee &amp; more.</p>
           </div>
           <div class="hub-card-footer">
             <button class="btn btn-cafe" style="width: 100%; justify-content: center;" onclick="switchView('cafe')">
-              Open Ayan Cafe <i class="fa-solid fa-arrow-right"></i>
+              Open South Indian Cafe <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
 
-        <!-- Card 3: Ayan Mobile -->
+        <!-- Card 3: Ayan Forest Hotel -->
         <div class="glass-panel hub-card mobile">
           <div>
             <div style="height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
-              <img src="ayan_mobile_hero.jpg" alt="Ayan Mobile Store Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="ayan_forest_hotel_hero.jpg" alt="Ayan Forest Hotel" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-mobile-retro"></i></div>
-            <h3>Ayan Mobile</h3>
-            <p>Authorized reseller of flagship smartphones, original accessories, screen replacement, and express repair shop.</p>
+            <div class="hub-card-icon" style="margin-bottom: 12px;"><i class="fa-solid fa-tree"></i></div>
+            <h3>Ayan Forest Hotel</h3>
+            <p>Luxury boutique forest retreat with infinity pool, nature-view suites, spa, and fine dining amidst lush greenery.</p>
           </div>
           <div class="hub-card-footer">
             <button class="btn btn-mobile" style="width: 100%; justify-content: center;" onclick="switchView('mobile')">
-              Open Ayan Mobile <i class="fa-solid fa-arrow-right"></i>
+              Explore Forest Hotel <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Location Map (Demo) -->
+    <section class="container" style="margin-bottom: 60px;">
+      <div class="section-header">
+        <span class="badge badge-hub"><i class="fa-solid fa-map-location-dot"></i> Our Network</span>
+        <h2 class="section-title">Ayan Group Locations</h2>
+      </div>
+      <div class="glass-panel" style="padding: 12px; position: relative;">
+        <div style="height: 300px; border-radius: var(--radius-md); overflow: hidden; background: #e5e7eb; position: relative; background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4);"></div>
+          <!-- Pins -->
+          <div class="map-pin" style="top: 40%; left: 30%; color: var(--accent-logistic); position: absolute; cursor: pointer;" title="SS Logistic Hub"><i class="fa-solid fa-location-dot fa-2x"></i></div>
+          <div class="map-pin" style="top: 60%; left: 55%; color: var(--accent-cafe); position: absolute; cursor: pointer;" title="Ayan South Indian Cafe"><i class="fa-solid fa-location-dot fa-2x"></i></div>
+          <div class="map-pin" style="top: 35%; left: 70%; color: var(--accent-mobile); position: absolute; cursor: pointer;" title="Ayan Forest Hotel"><i class="fa-solid fa-location-dot fa-2x"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="container" style="margin-bottom: 60px;">
+      <div class="section-header">
+        <span class="badge badge-hub"><i class="fa-solid fa-comments"></i> Community</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <div class="glass-panel testimonial-card" style="padding: 24px;">
+          <div style="color: #fbbf24; margin-bottom: 12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p style="font-style: italic; color: var(--text-muted);">"The tracking for SS Logistic is flawless. Package arrived safely. Highly recommend their service!"</p>
+          <h4 style="margin-top: 16px;">- Rahul Desai</h4>
+        </div>
+        <div class="glass-panel testimonial-card" style="padding: 24px;">
+          <div style="color: #fbbf24; margin-bottom: 12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p style="font-style: italic; color: var(--text-muted);">"Best Dosa I've ever had in the city. The atmosphere at Ayan Cafe is just wonderful."</p>
+          <h4 style="margin-top: 16px;">- Anjali Patel</h4>
+        </div>
+        <div class="glass-panel testimonial-card" style="padding: 24px;">
+          <div style="color: #fbbf24; margin-bottom: 12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <p style="font-style: italic; color: var(--text-muted);">"Ayan Forest Hotel is a perfect weekend getaway. The pool villa was absolutely stunning."</p>
+          <h4 style="margin-top: 16px;">- Vikram Singh</h4>
         </div>
       </div>
     </section>
@@ -158,15 +226,15 @@
       <div class="glass-panel stats-strip">
         <div class="stat-item">
           <h3>50,000+</h3>
-          <p>Parcels Delivered (SSS Logistic)</p>
+          <p>Parcels Delivered (SS Logistic)</p>
         </div>
         <div class="stat-item">
-          <h3 style="color: var(--accent-cafe)">120,000+</h3>
-          <p>Coffee & Meals Served (Ayan Cafe)</p>
+          <h3 style="color: var(--accent-cafe)">1,20,000+</h3>
+          <p>Thalis &amp; Meals Served (South Indian Cafe)</p>
         </div>
         <div class="stat-item">
-          <h3 style="color: var(--accent-mobile)">15,000+</h3>
-          <p>Mobiles Sold & Repaired (Ayan Mobile)</p>
+          <h3 style="color: var(--accent-mobile)">8,000+</h3>
+          <p>Happy Guests Hosted (Forest Hotel)</p>
         </div>
         <div class="stat-item">
           <h3 style="color: var(--info)">4.9 / 5.0</h3>
@@ -182,19 +250,19 @@
     <div class="container">
       <div class="section-header">
         <span class="badge badge-logistic"><i class="fa-solid fa-truck-fast"></i> Cargo & Express Courier</span>
-        <h2 class="section-title">SSS Logistic Services</h2>
-        <p class="section-subtitle">Fast, secure, and trackable freight solutions across local & international routes.</p>
+        <h2 class="section-title">SS Logistic Services</h2>
+        <p class="section-subtitle">Fast, secure, and trackable freight solutions across local &amp; international routes.</p>
       </div>
 
       <!-- SSS Logistic Hero Banner Image Showcase -->
       <div class="glass-panel" style="padding: 20px; margin-bottom: 40px; border-color: rgba(59, 130, 246, 0.3);">
         <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 380px;">
-          <img src="sss_logistic_hero.jpg" alt="SSS Logistic Fleet & Freight Banner" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="ss_logistic_hero_new.jpg" alt="SS Logistic Fleet &amp; Freight Banner" style="width: 100%; height: 100%; object-fit: cover;">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0)); padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
             <div>
               <span class="badge badge-logistic" style="background: rgba(59, 130, 246, 0.3); border-color: var(--accent-logistic);"><i class="fa-solid fa-shield-halved"></i> 100% Insured Fleet</span>
-              <h3 style="font-size: 2rem; color: #fff; margin-top: 6px;">Global Freight & Express Network</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">Seamless air, road, and maritime logistics powered by smart tracking technology.</p>
+              <h3 style="font-size: 2rem; color: #fff; margin-top: 6px;">SS Logistic &mdash; Freight &amp; Express Network</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Seamless road, air, and maritime logistics powered by real-time GPS tracking technology.</p>
             </div>
             <button class="btn btn-logistic" onclick="openQuoteModal()">
               <i class="fa-solid fa-paper-plane"></i> Book Immediate Cargo
@@ -379,7 +447,7 @@
       <!-- Ayan Cafe Hero Banner Image Showcase -->
       <div class="glass-panel" style="padding: 20px; margin-bottom: 40px; border-color: rgba(245, 158, 11, 0.3);">
         <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 380px;">
-          <img src="ayan_cafe_hero.jpg" alt="Ayan Cafe Bistro Showcase" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="https://images.unsplash.com/photo-1630409351217-bc4fa6422075?auto=format&fit=crop&w=1200&q=90" alt="South Indian Dosa - Ayan South Indian Cafe Hero" style="width: 100%; height: 100%; object-fit: cover;">
           <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(11, 15, 25, 0)); padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
             <div>
               <span class="badge badge-cafe" style="background: rgba(245, 158, 11, 0.3); border-color: var(--accent-cafe);"><i class="fa-solid fa-fire"></i> Freshly Brewed Daily</span>
@@ -401,6 +469,7 @@
           <button class="cat-btn" onclick="filterCafeMenu('beverage', this)">Shakes & Coolers</button>
           <button class="cat-btn" onclick="filterCafeMenu('snacks', this)">Burgers & Pizzas</button>
           <button class="cat-btn" onclick="filterCafeMenu('dessert', this)">Desserts & Bakery</button>
+          <button class="cat-btn" onclick="filterCafeMenu('punjabi', this)" style="background: linear-gradient(135deg, rgba(255,153,0,0.25), rgba(19,136,8,0.15)); border-color: #ff9900; color: #ffb84d;">🍛 Punjabi Dishes</button>
         </div>
 
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -698,8 +767,8 @@
           <h3 style="color: var(--accent-cafe); font-size: 1.6rem; margin-top: 4px;" id="admin-orders-count">120,810</h3>
         </div>
         <div style="background: rgba(16,185,129,0.1); border: 1px solid var(--accent-mobile); padding: 16px; border-radius: 12px; text-align: center;">
-          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">MOBILE REPAIRS</span>
-          <h3 style="color: var(--accent-mobile); font-size: 1.6rem; margin-top: 4px;" id="admin-repairs-count">15,340</h3>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">HOTEL BOOKINGS</span>
+          <h3 style="color: var(--accent-mobile); font-size: 1.6rem; margin-top: 4px;" id="admin-repairs-count">8,245</h3>
         </div>
       </div>
 
@@ -709,6 +778,52 @@
           <span>Database File: <strong>ayan_ecosystem.db</strong></span>
           <span>Status: <strong style="color: var(--success)">ACTIVE & CONNECTED</strong></span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Unified Dashboard Modal -->
+  <div class="modal-backdrop" id="user-dashboard-modal">
+    <div class="glass-panel modal-content" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeUserDashboardModal()">&times;</button>
+      <h3><i class="fa-solid fa-user-circle" style="color: var(--accent-hub)"></i> My Ayan Dashboard</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; margin-bottom: 20px;">Welcome back, User! Here is your recent activity.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="glass-panel" style="padding: 16px; border-left: 4px solid var(--accent-logistic);">
+          <h4><i class="fa-solid fa-box"></i> Active Shipment</h4>
+          <p style="font-size: 0.9rem; margin-top: 8px;"><strong>SSS-88921</strong>: In Transit (Ahmedabad Express)</p>
+          <button class="btn btn-outline" style="margin-top: 8px; padding: 4px 8px; font-size: 0.8rem;" onclick="switchView('logistic'); closeUserDashboardModal();">Track Now</button>
+        </div>
+        <div class="glass-panel" style="padding: 16px; border-left: 4px solid var(--accent-cafe);">
+          <h4><i class="fa-solid fa-utensils"></i> Last Cafe Order</h4>
+          <p style="font-size: 0.9rem; margin-top: 8px;">2x Butter Chicken, 1x Hazelnut Cold Brew</p>
+          <button class="btn btn-outline" style="margin-top: 8px; padding: 4px 8px; font-size: 0.8rem;" onclick="switchView('cafe'); closeUserDashboardModal();">Order Again</button>
+        </div>
+        <div class="glass-panel" style="padding: 16px; border-left: 4px solid var(--accent-mobile);">
+          <h4><i class="fa-solid fa-bed"></i> Upcoming Stay</h4>
+          <p style="font-size: 0.9rem; margin-top: 8px;">Pool Villa - Check-in: Sep 20</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+      <i class="fa-solid fa-robot"></i>
+    </button>
+    <div class="chatbot-window glass-panel" id="chatbot-window">
+      <div class="chatbot-header">
+        <h4 style="margin:0;"><i class="fa-solid fa-headset"></i> Ayan Assistant</h4>
+        <button class="icon-btn" style="padding: 4px; font-size:0.9rem;" onclick="toggleChatbot()"><i class="fa-solid fa-times"></i></button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chat-msg bot-msg">Hello! How can I help you today? Ask about tracking, food, or hotel.</div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Type a message..." onkeypress="handleChatbotEnter(event)">
+        <button class="btn btn-primary" style="padding: 8px 12px;" onclick="sendChatbotMessage()"><i class="fa-solid fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
@@ -726,12 +841,12 @@
             <div class="logo-text">AYAN <span>GROUP</span></div>
           </div>
           <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px;">
-            Integrated excellence spanning SSS Logistic consignment delivery, Ayan Cafe gourmet dining, and Ayan Mobile tech solutions.
+            Integrated excellence spanning SS Logistic freight delivery, Ayan South Indian Cafe authentic cuisine, and Ayan Forest Hotel luxury nature stays.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>SSS Logistic</h4>
+          <h4>SS Logistic</h4>
           <ul class="footer-links">
             <li><a href="#" onclick="switchView('logistic')">Express Courier</a></li>
             <li><a href="#" onclick="switchView('logistic')">Consignment Tracking</a></li>
@@ -741,28 +856,28 @@
         </div>
 
         <div class="footer-col">
-          <h4>Ayan Cafe</h4>
+          <h4>South Indian Cafe</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="switchView('cafe')">Artisan Coffee</a></li>
-            <li><a href="#" onclick="switchView('cafe')">Online Menu</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Dosa &amp; Idli Menu</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Full Thali Meals</a></li>
             <li><a href="#" onclick="switchView('cafe')">Table Reservation</a></li>
-            <li><a href="#" onclick="switchView('cafe')">Daily Specials</a></li>
+            <li><a href="#" onclick="switchView('cafe')">Filter Coffee</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Ayan Mobile</h4>
+          <h4>Ayan Forest Hotel</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="switchView('mobile')">Flagship Mobiles</a></li>
-            <li><a href="#" onclick="switchView('mobile')">Repair Estimator</a></li>
-            <li><a href="#" onclick="switchView('mobile')">Accessories</a></li>
-            <li><a href="#" onclick="switchView('mobile')">Device Trade-In</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Room Booking</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Pool Villas</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Forest Spa</a></li>
+            <li><a href="#" onclick="switchView('mobile')">Nature Trails</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Ayan Group Ecosystem. All Rights Reserved. SSS Logistic • Ayan Cafe • Ayan Mobile</p>
+        <p>&copy; 2026 Ayan Group Ecosystem. All Rights Reserved. SS Logistic • Ayan South Indian Cafe • Ayan Forest Hotel</p>
       </div>
     </div>
   </footer>
